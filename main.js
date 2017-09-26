@@ -1,7 +1,7 @@
 /* jshint devel: true */
 /* global define, brackets */
 
-define(function (require, exports, module) {
+define(function (require) {
   // Brackets modules
   var AppInit            = brackets.getModule("utils/AppInit");
   var MainViewManager    = brackets.getModule('view/MainViewManager');
