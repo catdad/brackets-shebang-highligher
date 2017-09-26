@@ -12,5 +12,9 @@ define(function (require, exports, module) {
     '#!/usr/bin/bash': 'bash',
     '#!/usr/bin/env sh': 'bash',
     '#!/usr/bin/sh': 'bash',
+    '#!/bin/bash': 'bash',
+    '#!/bin/sh': 'bash',
+    '#!/usr/bin/env stack': 'haskell',
+    '#!/usr/bin/stack': 'haskell',
   };
 });
