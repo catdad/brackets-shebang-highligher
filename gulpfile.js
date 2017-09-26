@@ -33,7 +33,7 @@ gulp.task('zip', function () {
 });
 
 gulp.task('lint', function () {
-    return gulp.src(source.all)
+    return gulp.src(source.lib)
         .pipe(graceful())
         .pipe(filter(['**/*.js']))
         .pipe(jshint())
