@@ -10,9 +10,6 @@ addons:
   code_climate:
     repo_token: 9d2748bbfcbf98645ff22d14fb32515f60a2370fc6541a17d0ec5502e208edc2
 
-script:
-- echo 'there are no tests'
-
 before_deploy:
 - npm run build
 
