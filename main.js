@@ -59,7 +59,7 @@ define(function (require) {
 
     codeMirror.markText(
       { line: 0, ch: 0 }, //from
-      { line: 0, ch: firstLine.length - 1 }, // to
+      { line: 0, ch: firstLine.length }, // to
       {
         className: 'cm-meta',
         inclusiveLeft: false,
@@ -70,7 +70,6 @@ define(function (require) {
 
   function init() {
     MainViewManager.on('currentFileChange', function() {
-      console.log('change', arguments);
       var doc = DocumentManager.getCurrentDocument();
       var firstLine = getFirstLine(doc);
       var language;
