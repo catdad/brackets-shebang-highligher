@@ -16,5 +16,7 @@ define(function (require, exports, module) {
     '#!/bin/sh': 'bash',
     '#!/usr/bin/env stack': 'haskell',
     '#!/usr/bin/stack': 'haskell',
+    '#!/usr/bin/env runhaskell': 'haskell',
+    '#!/usr/bin/runhaskell': 'haskell',
   };
 });
