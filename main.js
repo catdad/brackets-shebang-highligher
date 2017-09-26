@@ -6,6 +6,7 @@ define(function (require) {
   var AppInit            = brackets.getModule("utils/AppInit");
   var MainViewManager    = brackets.getModule('view/MainViewManager');
   var DocumentManager    = brackets.getModule('document/DocumentManager');
+  var EditorManager      = brackets.getModule('editor/EditorManager');
   var LanguageManager    = brackets.getModule("language/LanguageManager");
 
   // this is a map object of lowercased name and language object
@@ -13,11 +14,12 @@ define(function (require) {
   // load lookup list of shebang values
   var map = require('shebang-map');
 
-  function detectLanguage(doc) {
-    // get the first first line
-    var part = doc.getRange({line: 0, ch: 0}, {line:1, ch:0}).trim();
+  function getFirstLine(doc) {
+    return doc.getRange({line: 0, ch: 0}, {line:1, ch:0}).trim();
+  }
 
-    var langName = map[part];
+  function detectLanguage(firstLine) {
+    var langName = map[firstLine];
 
     if (!langName) {
       // this is not a known language (or doesn't even use a shebang)
@@ -47,13 +49,41 @@ define(function (require) {
     LanguageManager.setLanguageOverrideForPath(fullPath, lang === defaultLang ? null : lang);
   }
 
+  function highlightShebang(firstLine) {
+    var editor = EditorManager.getActiveEditor();
+    var codeMirror = editor._codeMirror;
+
+    if (!codeMirror || !codeMirror.markText) {
+      return;
+    }
+
+    codeMirror.markText(
+      { line: 0, ch: 0 }, //from
+      { line: 0, ch: firstLine.length - 1 }, // to
+      {
+        className: 'cm-meta',
+        inclusiveLeft: false,
+        inclusiveRight: true
+      }
+    );
+  }
+
   function init() {
     MainViewManager.on('currentFileChange', function() {
+      console.log('change', arguments);
       var doc = DocumentManager.getCurrentDocument();
+      var firstLine = getFirstLine(doc);
       var language;
 
+      if (!/^#\!/.test(firstLine)) {
+        return;
+      }
+
+      // this is a shebang comment... highlight it
+      highlightShebang(firstLine);
+
       if (doc) {
-        language = detectLanguage(doc);
+        language = detectLanguage(firstLine);
       }
 
       if (language) {
