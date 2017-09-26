@@ -51,6 +51,9 @@ define(function (require) {
 
   function highlightShebang(firstLine) {
     var editor = EditorManager.getActiveEditor();
+    // this is probably not supported, but I could not find a supported way to get
+    // the original CodeMirror object, and most methods are not exposed on the
+    // Document object
     var codeMirror = editor._codeMirror;
 
     if (!codeMirror || !codeMirror.markText) {
