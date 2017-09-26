@@ -68,33 +68,36 @@ define(function (require) {
     );
   }
 
+  function detectAndHighlight() {
+    var doc = DocumentManager.getCurrentDocument();
+
+    if (!doc) {
+      // user probs closed everything
+      return;
+    }
+
+    var firstLine = getFirstLine(doc);
+    var language;
+
+    if (!/^#\!/.test(firstLine)) {
+      return;
+    }
+
+    // this is a shebang comment... highlight it
+    highlightShebang(firstLine);
+
+    if (doc) {
+      language = detectLanguage(firstLine);
+    }
+
+    if (language) {
+      setLanguage(doc, language);
+    }
+  }
+
   function init() {
-    MainViewManager.on('currentFileChange', function() {
-      var doc = DocumentManager.getCurrentDocument();
-
-      if (!doc) {
-        // user probs closed everything
-        return;
-      }
-
-      var firstLine = getFirstLine(doc);
-      var language;
-
-      if (!/^#\!/.test(firstLine)) {
-        return;
-      }
-
-      // this is a shebang comment... highlight it
-      highlightShebang(firstLine);
-
-      if (doc) {
-        language = detectLanguage(firstLine);
-      }
-
-      if (language) {
-        setLanguage(doc, language);
-      }
-    });
+    MainViewManager.on('currentFileChange', detectAndHighlight);
+    DocumentManager.on('documentSaved', detectAndHighlight);
   }
 
   // Initialize extension
