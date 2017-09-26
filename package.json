@@ -11,5 +11,16 @@
   "license": "ISC",
   "engines": {
     "brackets": ">=1.8.0"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-filter": "^5.0.1",
+    "gulp-graceful-error": "^1.1.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sequence": "^0.4.6",
+    "gulp-zip": "^4.0.0",
+    "jshint": "^2.9.5",
+    "jshint-more-stylish": "^1.0.1"
   }
 }
