@@ -71,6 +71,12 @@ define(function (require) {
   function init() {
     MainViewManager.on('currentFileChange', function() {
       var doc = DocumentManager.getCurrentDocument();
+
+      if (!doc) {
+        // user probs closed everything
+        return;
+      }
+
       var firstLine = getFirstLine(doc);
       var language;
 
