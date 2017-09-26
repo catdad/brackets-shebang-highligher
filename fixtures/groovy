@@ -1,0 +1,9 @@
+#!/usr/bin/env groovy
+
+class PrintExample {
+  static void main(String[] args) {
+    print 'one'
+    print 'two'
+    print 'three'
+  }
+}
