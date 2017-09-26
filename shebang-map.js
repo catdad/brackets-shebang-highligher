@@ -1,7 +1,7 @@
 /* globals define */
 
 define(function (require, exports, module) {
-  exports.list = {
+  module.exports = {
     '#!/usr/bin/env node': 'javascript',
     '#!/usr/bin/node': 'javascript',
     '#!/usr/bin/env groovy': 'groovy',

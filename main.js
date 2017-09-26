@@ -11,7 +11,7 @@ define(function (require) {
   // this is a map object of lowercased name and language object
   var languages = LanguageManager.getLanguages();
   // load lookup list of shebang values
-  var map = require('shebang-map').list;
+  var map = require('shebang-map');
 
   function detectLanguage(doc) {
     // get the first first line
