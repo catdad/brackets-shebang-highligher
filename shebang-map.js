@@ -8,5 +8,9 @@ define(function (require, exports, module) {
     '#!/usr/bin/groovy': 'groovy',
     '#!/usr/bin/env python': 'python',
     '#!/usr/bin/python': 'python',
+    '#!/usr/bin/env bash': 'bash',
+    '#!/usr/bin/bash': 'bash',
+    '#!/usr/bin/env sh': 'bash',
+    '#!/usr/bin/sh': 'bash',
   };
 });
