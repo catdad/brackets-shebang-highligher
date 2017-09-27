@@ -5,7 +5,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "build": "gulp build"
   },
   "author": "Kiril Vatev <vatev.1@gmail.com>",
   "license": "ISC",
