@@ -19,7 +19,7 @@ deploy:
     secure: wSI2PC852rcavs7rKu+5B0ikDXVdSrxNy85Z3oaNv2Zk66WAsnrpgrL+2rjD0BTCZQxm84gtYw9IJ1/n96MGrY/0nUYo/A1Rp6eMn6mmqVzwyUX/H7C3OsWWyjV04UnO2zAcGcL878LCwlApuiFcciyO50mM00QiZZwyvKCgUy9hSLHhYxyaHodGwuFZzZL6vbFZXO/EiOrHRtoSWwXhupVCIincJQAWsgInC3eNzf4LODZdab8ReDcWNTjjZgz7i8aBd79vtBILMQ70EVzMDV52y9p8YPLTlSzvp+d47ZMJNSglKxxaBPesAZQsITop++9x2J4EJSykTgaZr72u6AifavtUKmGaEDR01qIzg6FmFh+DvwJ7l2cJGEIM6LOdaZdU/46uOG+Sl0eFH+Fp5Zulrv6Yp8BWMw20ItaGVhWOgMGYRECo2qmjhxd7KXlAkdWDnHdrLplZyv1ZdUnNE8JXh/WQKpwpYrORZnm5Stu36D5+UYyzMvMnuUpuSB17Sk8T/igJIA0QZ2tq5cRqTPz2ZYE5wLB7PRVzG/s8x+IXIdWjwVyIDeOHTq856GDOmo4nohuKYUuqrkKMnk9WsjZeOj1lK5KeCSduSljAifumU9iPfsu/gJIxftT09j9oPvJ1zHNJpy9fCS/W1aeT738BV6UK459/SZr3X3W8bok=
   skip_cleanup: true
   file_glob: true
-  file: 'output/catdad.open-shell-here*.zip'
+  file: 'output/catdad.shebang-highlighter*.zip'
   on:
     tags: true
     repo: catdad/brackets-shebang-highligher
