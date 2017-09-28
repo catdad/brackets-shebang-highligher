@@ -18,5 +18,8 @@ define(function (require, exports, module) {
     '#!/usr/bin/stack': 'haskell',
     '#!/usr/bin/env runhaskell': 'haskell',
     '#!/usr/bin/runhaskell': 'haskell',
+    '#!/usr/bin/env perl': 'perl',
+    '#!/usr/bin/perl': 'perl',
+    '#!/usr/local/bin/perl': 'perl',
   };
 });
